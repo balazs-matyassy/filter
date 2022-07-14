@@ -16,20 +16,27 @@ public class Main3 {
         };
 
         // Rácskert-es kvízek (metódus referencia)
-        Predicate<Quiz> filter = null;
+        Predicate<Quiz> filter = Main3::isLocationRacskert;
         List<Quiz> filtered = filterQuizzes(quizzes, filter);
 
         for (Quiz quiz : filtered) {
             System.out.println(quiz);
         }
 
+        System.out.println();
+        System.out.println();
+
         // Enter Bar-os kvízek (lambda)
-        filter = null;
+        filter = quiz -> quiz.getLocation().equalsIgnoreCase("Enter Bar");
         filtered = filterQuizzes(quizzes, filter);
 
         for (Quiz quiz : filtered) {
             System.out.println(quiz);
         }
+    }
+
+    private static boolean isLocationRacskert(Quiz quiz) {
+        return quiz.getLocation().equalsIgnoreCase("Rácskert");
     }
 
     private static List<Quiz> filterQuizzes(Quiz[] quizzes, Predicate<Quiz> filter) {
