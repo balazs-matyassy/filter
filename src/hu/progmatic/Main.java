@@ -66,10 +66,22 @@ public class Main {
         // Lambda
         // Java 8+
         System.out.println("Maximum nyeremény: (3. verzió)");
-        valueExtractor = quiz -> quiz.getPrice();
+        valueExtractor = q -> q.getPrice();
         System.out.println(maxValue(quizzes, valueExtractor));
+
+        System.out.println("1. statisztika: Maximum nyeremény");
+        QuizStatistics statistics = q -> q.getPrice();
+        System.out.println(statistics.calculate(quizzes[0]));
+
+        // Nem kompatibilisek, mivel más osztályokat példányosítunk.
+        // valueExtractor = statistics; ???
+
+        // Kompatibilisek ugyanazzal a metódus referenciával,
+        // de egymással megint nem, mivel más osztályokat példányosítunk.
+        statistics = Main::getPrice;
     }
 
+    // Quiz -> int
     private static int getPrice(Quiz quiz) {
         return quiz.getPrice();
     }
