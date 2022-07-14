@@ -9,6 +9,20 @@ public class Quiz {
     private int numberOfParticipant;
     private int price;
 
+    public Quiz() {
+
+    }
+
+    public Quiz(String date, String location, int duration, int winnerScore, int numberOfTeams, int numberOfParticipant, int price) {
+        this.date = date;
+        this.location = location;
+        this.duration = duration;
+        this.winnerScore = winnerScore;
+        this.numberOfTeams = numberOfTeams;
+        this.numberOfParticipant = numberOfParticipant;
+        this.price = price;
+    }
+
     public String getDate() {
         return date;
     }
