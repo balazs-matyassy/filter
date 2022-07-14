@@ -41,13 +41,24 @@ public class Main {
 
         // Method reference (static)
         // Java 8+
+        /* new ValueExtractor() {
+            @Override
+            public int getValue(Quiz quiz) {
+                return getPrice(quiz);
+            }
+        }; */
         System.out.println("Maximum nyeremény:");
         valueExtractor = Main::getPrice;
         System.out.println(maxValue(quizzes, valueExtractor));
 
         // Method reference (instance)
         // Quiz::getPrice
-        // getValue(Quiz quiz) -> quiz.getPrice()
+        /* new ValueExtractor() {
+            @Override
+            public int getValue(Quiz quiz) {
+                return quiz.getPrice();
+            }
+        }; */
         System.out.println("Maximum nyeremény: (2. verzió)");
         valueExtractor = Quiz::getPrice;
         System.out.println(maxValue(quizzes, valueExtractor));
