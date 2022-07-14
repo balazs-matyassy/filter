@@ -78,4 +78,17 @@ public class Quiz {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "date='" + date + '\'' +
+                ", location='" + location + '\'' +
+                ", duration=" + duration +
+                ", winnerScore=" + winnerScore +
+                ", numberOfTeams=" + numberOfTeams +
+                ", numberOfParticipant=" + numberOfParticipant +
+                ", price=" + price +
+                '}';
+    }
 }
