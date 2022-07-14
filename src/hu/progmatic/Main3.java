@@ -15,9 +15,17 @@ public class Main3 {
                 new Quiz("2022.07.19.", "Rácskert", 150, 52, 8, 40, 10000)
         };
 
-        // Rácskert-es kvízek
+        // Rácskert-es kvízek (metódus referencia)
         Predicate<Quiz> filter = null;
-        List<Quiz> filtered = filterQuizzes(quizzes, null);
+        List<Quiz> filtered = filterQuizzes(quizzes, filter);
+
+        for (Quiz quiz : filtered) {
+            System.out.println(quiz);
+        }
+
+        // Enter Bar-os kvízek (lambda)
+        filter = null;
+        filtered = filterQuizzes(quizzes, filter);
 
         for (Quiz quiz : filtered) {
             System.out.println(quiz);
