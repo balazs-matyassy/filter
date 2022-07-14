@@ -11,4 +11,28 @@ public class Main {
                 new Quiz("2022.07.19.", "Rácskert", 150, 52, 8, 40, 10000)
         };
     }
+
+    private static int maxDurationValue(Quiz[] quizzes) {
+        int max = Integer.MIN_VALUE;
+
+        for (Quiz quiz : quizzes) {
+            if (quiz.getDuration() > max) {
+                max = quiz.getDuration();
+            }
+        }
+
+        return max;
+    }
+
+    private static int maxWinnerScoreValue(Quiz[] quizzes) {
+        int max = Integer.MIN_VALUE;
+
+        for (Quiz quiz : quizzes) {
+            if (quiz.getWinnerScore() > max) {
+                max = quiz.getWinnerScore();
+            }
+        }
+
+        return max;
+    }
 }
