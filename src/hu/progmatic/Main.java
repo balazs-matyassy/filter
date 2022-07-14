@@ -12,10 +12,32 @@ public class Main {
         };
 
         System.out.println("Maximum hossz:");
-        System.out.println(maxValue(quizzes, new DurationExtractor()));
+        ValueExtractor valueExtractor = new DurationExtractor();
+        System.out.println(maxValue(quizzes, valueExtractor));
 
         System.out.println("Maximum pontszám:");
-        System.out.println(maxValue(quizzes, new WinnerScoreExtractor()));
+        valueExtractor = new WinnerScoreExtractor();
+        System.out.println(maxValue(quizzes, valueExtractor));
+
+        // Anonymous class (ad-hoc)
+        // Java 7-ig
+        System.out.println("Maximum csapatszám:");
+        valueExtractor = new ValueExtractor() { // new Main$1() [...]
+            @Override
+            public int getValue(Quiz quiz) {
+                return quiz.getNumberOfTeams();
+            }
+        };
+        System.out.println(maxValue(quizzes, valueExtractor));
+
+        System.out.println("Maximum nyeremény:");
+        valueExtractor = new ValueExtractor() { // new Main$2() [...]
+            @Override
+            public int getValue(Quiz quiz) {
+                return quiz.getPrice();
+            }
+        };
+        System.out.println(maxValue(quizzes, valueExtractor));
     }
 
     private static int maxValue(Quiz[] quizzes, ValueExtractor valueExtractor) {
