@@ -18,7 +18,7 @@ public class MainRegex {
         // + (1 és végtelen)
         // ? (0 és 1)
         // {4}
-        // {4:6}
+        // {4,6}
 
         System.out.println(Pattern.matches("a*b", "aaaab"));
         System.out.println(Pattern.matches("a*b", "b"));
@@ -32,7 +32,7 @@ public class MainRegex {
         System.out.println(Pattern.matches("\\d{6}", "123456"));
 
         System.out.println(Pattern.matches("[1-9]\\d{5}", "123456"));
-        System.out.println(Pattern.matches("[1-9]\\d{5}", "023456"));
+        System.out.println(Pattern.matches("[1-9]\\d{5,6}", "023456"));
 
         System.out.println(Pattern.matches("alma\\d*", "alma"));
         System.out.println(Pattern.matches("alma\\d+", "alma"));
