@@ -42,9 +42,16 @@ public class MainRegex {
         System.out.println(Pattern.matches("[a-zA-Z]?", ""));
 
         // a-val kezdődő rendszámok (ABC-123)
+        System.out.println(Pattern.matches("A[A-Z]{2}-\\d{3}", "ABC-123"));
         // 6 és 8 karakter közötti számok (nem kezdődhet nullával)
+        System.out.println(Pattern.matches("[1-9]\\d{5,7}", "1234567"));
         // irányítószám
+        System.out.println(Pattern.matches("[1-9]\\d{3}", "9400"));
         // a-val kezdődő és z-vel végződő szavak
+        System.out.println(Pattern.matches("a.*z", "az"));
+        System.out.println(Pattern.matches("a.*z", "alcatraz"));
         // egymás mellett 3 y-t tartalmazó szavak (pl. abyyyzzz)
+        System.out.println(Pattern.matches(".*y{3}.*", "abyyyzzz"));
+        System.out.println(Pattern.matches(".*y{3}.*", "yyyzzz"));
     }
 }
