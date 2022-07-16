@@ -1,14 +1,12 @@
 package hu.progmatic;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class MainRegex {
     // https://www.baeldung.com/regular-expressions-java
     // https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
+    // https://docs.oracle.com/javase/tutorial/essential/regex/quant.html
     public static void main(String[] args) throws IOException {
         // konkrét szövegdarabok (pl. alma)
         // karakterosztályok (pl. [ab], [0-9])
