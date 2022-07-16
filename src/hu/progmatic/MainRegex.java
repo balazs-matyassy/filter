@@ -53,5 +53,9 @@ public class MainRegex {
         // egymás mellett 3 y-t tartalmazó szavak (pl. abyyyzzz)
         System.out.println(Pattern.matches(".*y{3}.*", "abyyyzzz"));
         System.out.println(Pattern.matches(".*y{3}.*", "yyyzzz"));
+
+        System.out.println(Pattern.matches("\\.{4}", "...."));
+        System.out.println(Pattern.matches("\\.{4}", "aaaa"));
+        System.out.println(Pattern.matches("[.]{4}", "aaaa"));
     }
 }
