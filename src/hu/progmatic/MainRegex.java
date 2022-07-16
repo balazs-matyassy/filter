@@ -43,6 +43,10 @@ public class MainRegex {
         System.out.println(Pattern.matches("[a-zA-Z]?", "al"));
         System.out.println(Pattern.matches("[a-zA-Z]?", ""));
 
-
+        // a-val kezdődő rendszámok (ABC-123)
+        // 6 és 8 karakter közötti számok (nem kezdődhet nullával)
+        // irányítószám
+        // a-val kezdődő és z-vel végződő szavak
+        // egymás mellett 3 y-t tartalmazó szavak (pl. abyyyzzz)
     }
 }
