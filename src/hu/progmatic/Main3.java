@@ -3,6 +3,7 @@ package hu.progmatic;
 import hu.progmatic.model.Quiz;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -14,6 +15,8 @@ public class Main3 {
                 new Quiz("2022.07.12.", "Rácskert", 100, 42, 4, 20, 10000),
                 new Quiz("2022.07.19.", "Rácskert", 150, 52, 8, 40, 10000)
         };
+
+        // Arrays.stream(quizzes);
 
         // Rácskert-es kvízek (metódus referencia)
         Predicate<Quiz> filter = Main3::isLocationRacskert;

@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class Main4 {
     public static void main(String[] args) {
+        // https://www.baeldung.com/java-8-streams-introduction
         // https://www.baeldung.com/java-stream-filter-lambda
         List<Quiz> quizzes = List.of(
                 new Quiz("2022.07.12.", "Enter Bar", 120, 40, 7, 28, 3000),
