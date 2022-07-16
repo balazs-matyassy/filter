@@ -17,21 +17,60 @@ public class MainPractice {
 
         // 2022.07.12-én játszott kvízek max nyereménye
         // (anonymous class)
+        int max = getMax(
+                quizzes,
+                new Predicate<Quiz>() {
+                    @Override
+                    public boolean test(Quiz quiz) {
+                        return quiz.getDate().equals("2022.07.12.");
+                    }
+                },
+                new Function<Quiz, Integer>() {
+                    @Override
+                    public Integer apply(Quiz quiz) {
+                        return quiz.getPrice();
+                    }
+                });
+
+        System.out.println("A 2022.07.12-én játszott kvízek max nyereménye: " + max);
 
         // összes kvíz max hossza
         // (method reference)
+        // public Integer apply(Quiz quiz) {
+        //  return getQuizDuration(quiz);
+        // }
+        max = getMax(quizzes, MainPractice::allQuizzes, MainPractice::getQuizDuration);
+        System.out.println("Összes kvíz max hossza: " + max);
+
+        // public Integer apply(Quiz quiz) {
+        //  return quiz.getDuration();
+        // }
+        max = getMax(quizzes, MainPractice::allQuizzes, Quiz::getDuration);
+        System.out.println("Összes kvíz max hossza: " + max);
 
         // Enter Bar-ban játszott kvízek max pontszáma
         // (lambda)
-
+        max = getMax(
+                quizzes,
+                quiz -> quiz.getLocation().equals("Enter Bar"),
+                qz -> qz.getWinnerScore());
+        System.out.println("Az Enter Barban játszott kvízek max pontszáma: " + max);
     }
 
-    private static int getMax(List<Quiz> quizzes, Predicate<Quiz> filter, Function<Quiz, Integer> extractor) {
+    private static boolean allQuizzes(Quiz quiz) {
+        return true;
+    }
+
+    private static int getQuizDuration(Quiz quiz) {
+        return quiz.getDuration();
+    }
+
+    private static int getMax(List<Quiz> quizzes, Predicate<Quiz> where, Function<Quiz, Integer> select) {
         int max = Integer.MIN_VALUE;
 
         for (Quiz quiz : quizzes) {
-            if (filter.test(quiz)) {
-                int value = extractor.apply(quiz);
+            if (where.test(quiz)) {
+                int value = select.apply(quiz);
 
                 if (value > max) {
                     max = value;
