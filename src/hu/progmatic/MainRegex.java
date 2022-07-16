@@ -57,5 +57,11 @@ public class MainRegex {
         System.out.println(Pattern.matches("\\.{4}", "...."));
         System.out.println(Pattern.matches("\\.{4}", "aaaa"));
         System.out.println(Pattern.matches("[.]{4}", "aaaa"));
+
+        System.out.println(Pattern.matches("A[A-Z]{2}-\\d{2}9", "ABC-999"));
+        System.out.println(Pattern.matches(".{2}[Cc].*", "ABC2"));
+        System.out.println(Pattern.matches("CD-\\d{3}-\\d66", "CD-123-466"));
+
+
     }
 }
